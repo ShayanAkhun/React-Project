@@ -1,17 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import faker from "faker";
+import React from "react";
+import ReactDom from "react-dom";
+import CommentDetail from "./CommentDetail";
+import ApprovalCard from "./ApprovalCard";
+import Navbar from "./Navbar";
+// eslint-disable-next-line no-unused-vars
+import components from "./components/components";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+const App = () => {
+  return (
+    <div className="ui container">
+      <components>
+      <Navbar/>
+      <ApprovalCard >
+        <CommentDetail
+          author="Shayan"
+          date="Today 6:00AM"
+          text="Revloutionary!!!"
+          avatar={faker.image.image()}
+        />
+      </ApprovalCard>
+      <ApprovalCard>
+        <CommentDetail
+          author="Salman"
+          date="Today 4:20 PM"
+          text="prachtig!!!"
+          avatar={faker.image.image()}
+        />
+      </ApprovalCard>
+      <ApprovalCard>
+        <CommentDetail
+          author="Sajid "
+          date="Yesterday 3:14 PM"
+          text="wunderbarr!!"
+          avatar={faker.image.image()}
+        />
+      </ApprovalCard>
+      </components>
+    </div>
+  );
+};
+ReactDom.render(<App />, document.querySelector("#root"));
